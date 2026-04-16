@@ -32,6 +32,19 @@ let currentState = null;  // Latest GameStateResponse from backend
 document.addEventListener("DOMContentLoaded", () => {
     const BASE_URL = "https://urp-backend-final.onrender.com";
 
+    function switchToStudentTab() {
+        const tabButtons = document.querySelectorAll(".tab-btn");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        tabButtons.forEach(b => b.classList.remove("active"));
+        tabContents.forEach(c => c.classList.remove("active"));
+
+        const studentBtn = document.getElementById("student-tab-btn");
+        const studentTab = document.getElementById("student-tab");
+
+        if (studentBtn) studentBtn.classList.add("active");
+        if (studentTab) studentTab.classList.add("active");
+    }
     // ================================
     // DOM Element References
     // ================================
