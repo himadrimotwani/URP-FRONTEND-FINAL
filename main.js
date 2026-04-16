@@ -26,7 +26,7 @@
 // Global State Variables
 // ================================
 function switchToStudentTab() {
-    document.getElementById("student-tab-btn")?.click();
+    setActiveTab("student"); 
 }
 let sessionId = null;     // Current game session_id
 let currentState = null;  // Latest GameStateResponse from backend
@@ -1000,8 +1000,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     `Game started (session ${sessionId.slice(0, 8)}..., rounds=${rounds}, method=${demandMethod}).`,
                     "success"
                 );
-                renderGameState();
                 switchToStudentTab();
+                renderGameState();
+                
             } catch (err) {
                 console.error(err);
                 if (gameStateOutput) {
